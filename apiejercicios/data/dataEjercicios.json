@@ -1,0 +1,24 @@
+{
+  "aritmetica": {
+    "sumas": [],
+    "restas": [],
+    "multiplicacion": [],
+    "numeros negativos": [],
+    "fracciones": [],
+    "decimales": []
+  },
+  "algebra": [],
+  "geometria": [],
+  "trigonometria": [],
+  "algebra": [],
+  "probabilidad": [],
+
+  "calculo": [
+    {
+      "descripcion": "2x - 1= 5x + 8",
+      "soluciones": ["-7", "-5", "-2", "-9"],
+      "correcto": "-7",
+      "pistas": ["Factorizar", "Ecuanamizar", "Nope"]
+    }
+  ]
+}
