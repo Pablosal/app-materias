@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-const PistasComponente = () => {
+const PistasComponente = (props) => {
   const [mostrarTips, setMostrarTips] = useState(false);
+  console.log(props.pistosas);
   return (
     <div className="tips d-flex flex-column justify-center align-center">
       <div className="pistas">
@@ -12,10 +13,20 @@ const PistasComponente = () => {
       </div>
       {mostrarTips && (
         <div className="d-flex justfy-around align-center">
-          <div className="square m-2"></div>
-          <div className="square m-2"></div>
-          <div className="square m-2"></div>
-          <div className="square m-2"></div>
+          {props.pistas.map((p) => (
+            <div
+              onMouseEnter={console.log("siii")}
+              data-tooltip
+              className="square m-2 "
+              key={p[0].toUpperCase()}
+              className="tooltip"
+            >
+              <p className="">{p[0].toUpperCase()}</p>
+              <p className="tooltiptext ">
+                {props.pistosas.find((l) => l.name === p).descripcion}
+              </p>
+            </div>
+          ))}
         </div>
       )}
     </div>

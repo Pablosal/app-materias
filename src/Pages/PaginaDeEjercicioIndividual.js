@@ -8,7 +8,7 @@ import NotasComponente from "../Components/EjercicioIndividual/NotasComponente";
 import DescripcionComponente from "../Components/EjercicioIndividual/DescripcionComponente";
 import DrawComponent from "../Components/EjercicioIndividual/DrawComponent";
 import { useSelector } from "react-redux";
-export const PaginadeEjercicioIndividual = () => {
+export const PaginadeEjercicioIndividual = (props) => {
   const [exercise, setExercise] = useState();
   let parametros = useParams();
 
@@ -18,17 +18,17 @@ export const PaginadeEjercicioIndividual = () => {
   });
   const obtenerDatos = () => {
     let ejerciciosFiltrados = ejercicios2[parametros.submateria];
+    let randomExercise =
+      ejerciciosFiltrados[
+        Math.floor(Math.random() * ejerciciosFiltrados.length)
+      ];
     if (ejerciciosFiltrados.length > 0) {
-      setExercise(
-        ejerciciosFiltrados[
-          Math.floor(Math.random() * ejerciciosFiltrados.length)
-        ]
-      );
-      console.log(Math.floor(Math.random() * ejerciciosFiltrados.length));
+      setExercise(randomExercise);
     } else {
       console.log("No existen ejercicios aqui");
     }
   };
+
   return (
     <div
       className="container ejercicios-totales p-2 m-5"
@@ -45,12 +45,15 @@ export const PaginadeEjercicioIndividual = () => {
             className="sidebar-utilities p-2 "
             style={{ border: "2px double", width: "511px", height: "auto" }}
           >
-            <PistasComponente />
+            {/* <PistasComponente
+              pistas={exercise.pistas}
+              pistosas={props.pistas[parametros.submateria]}
+            /> */}
             <NotasComponente />
           </div>
         </>
       ) : (
-        <h1>No existe un Ejercicio</h1>
+        <h1>No existen ejercicios</h1>
       )}
     </div>
   );

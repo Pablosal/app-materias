@@ -2,52 +2,68 @@ import React from "react";
 import "./ListadeMaterias.css";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import backTeacher from "../imagenes/asd.webp";
 export const PaginaDeListadeMaterias = (props) => {
   return (
-    <div className="container d-flex flex-column">
+    <div className=" d-flex flex-column">
+      <section
+        className="container"
+        style={{
+          height: "100vh",
+          padding: 0,
+          background: `url(${backTeacher}) no-repeat center center`,
+        }}
+      >
+        <div
+          className="upperSection "
+          style={{
+            backgroundColor: "rgba(0,0,0,.8)",
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1 style={{ color: "white" }}>
+            Has tus ejercicios de matematica de manera online
+          </h1>
+        </div>
+      </section>
       <div className="windowShopper d-flex flex-row">
         {props.materias.map((m) => (
           <div
             key={uuidv4()}
             className="container contenedor-materia"
-            style={{ backgroundColor: `${m.background}`, color: "black" }}
+            style={{
+              backgroundColor: `${m.background}`,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              maxWidth: "250px",
+              maxHeight: "250px",
+              width: "auto",
+              position: "relative",
+            }}
           >
-            <img src={m.image} alt={m.nombre} height="70" width="70" />
+            <img
+              style={{
+                position: "absolute",
+                top: "-35px",
+                color: "white ",
+                borderRadius: "50%",
+              }}
+              src={m.image}
+              alt={m.nombre}
+              height="70"
+              width="70"
+            />
             <Link className="p-3" key={m.id} to={m.endpoint}>
               {m.nombre}
             </Link>
           </div>
         ))}
-      </div>
-      <div className="memo bg-dark p-3 m-4 ">
-        <h2>
-          Los Mejores y mas variados ejercicios de matematicas gratis online
-        </h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-      </div>
-      <div className="memo bg-dark p-3 m-4 ">
-        <h2>Guias de Ejercicios de Matematicas Gratis</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
       </div>
     </div>
   );

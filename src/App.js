@@ -4,7 +4,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import { PaginaDeListadeMaterias } from "./Pages/PaginaDeListaDeMaterias";
 import { PaginadeEjercicioIndividual } from "./Pages/PaginaDeEjercicioIndividual";
 import Navbar from "./Navbar";
-import { ejercicio, materias } from "./Data"; // <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+import { materias, pistas } from "./Data"; // <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 import PaginaDeSubtemas from "./Pages/PaginaDeSubtemas";
 import { useSelector } from "react-redux";
 function App() {
@@ -18,7 +18,10 @@ function App() {
             <PaginaDeListadeMaterias materias={materias} />
           </Route>
           <Route exact path="/:subtema/:submateria">
-            <PaginadeEjercicioIndividual ejercicios={temas.ejercicios} />
+            <PaginadeEjercicioIndividual
+              ejercicios={temas.ejercicios}
+              pistas={pistas}
+            />
           </Route>
           <Route exact path="/:subtema">
             <PaginaDeSubtemas

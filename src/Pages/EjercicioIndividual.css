@@ -76,3 +76,18 @@ input:checked + .slider:before {
 .ejercicios-totales {
   display: flex;
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltiptext {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: black;
+  border-radius: 45%;
+  height: 50px;
+  width: auto;
+  text-align: center;
+}

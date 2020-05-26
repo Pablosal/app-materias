@@ -6,10 +6,11 @@ const PaginaDeSubtemas = (props) => {
   const dispatch = useDispatch();
   const rotu = useParams();
   const subtemas = props.materias.find((m) => m.endpoint === rotu.subtema);
-
+  console.log(props.ejercicios);
   return (
     <div>
       <div className="container">
+        <h3>Elige tú tema</h3>
         <ul className="list-group">
           {subtemas.submaterias.map((s) => (
             <Link
@@ -23,7 +24,8 @@ const PaginaDeSubtemas = (props) => {
                 className="badge badge-primary badge-pill "
                 style={{ float: "right" }}
               >
-                {props.ejercicios[s.replace(/ /g, "").toLowerCase()].length}
+                {props.ejercicios[s.replace(/ /g, "").toLowerCase()].length ||
+                  0}
               </span>
             </Link>
           ))}

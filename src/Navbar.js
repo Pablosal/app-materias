@@ -4,14 +4,24 @@ import logo from "./imagenes/matemeister.svg";
 const Navbar = () => {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light bg-ligh"
-      style={{ backgroundColor: "#233AB0" }}
+      className=" container navbar navbar-expand-lg navbar-light bg-ligh "
+      style={{
+        backgroundColor: "#233AB0",
+      }}
     >
-      <img src={logo} width="50px" alt="" />
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+      <ul
+        className="navbar-nav "
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "80px",
+        }}
+      >
+        <li className="nav-brand">
           <Link to="/" className="nav-link" style={{ color: "white" }}>
-            Inicio
+            <img src={logo} width="80px" alt="" />
           </Link>
         </li>
       </ul>
